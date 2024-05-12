@@ -60,6 +60,7 @@ export default function SendMessage() {
 
   const [isLoading, setIsLoading] = useState(false);
 
+
   const onSubmit = async (data: z.infer<typeof messageSchema>) => {
     setIsLoading(true);
     try {
@@ -86,14 +87,14 @@ export default function SendMessage() {
     }
   };
 
-  const fetchSuggestedMessages = async () => {
-    // try {
-    //   complete('');
-    // } catch (error) {
-    //   console.error('Error fetching messages:', error);
-    //   // Handle error appropriately
-    // }
+  const showToast = () => {
+    toast({
+      title: "Feature not available at the moment",
+      description: "OpenAI key unavailable"
+    });
   };
+
+  
 
   return (
     <div className="container mx-auto my-8 p-6 bg-white rounded max-w-4xl">
@@ -137,7 +138,7 @@ export default function SendMessage() {
       <div className="space-y-4 my-8">
         <div className="space-y-2">
           <Button
-            onClick={fetchSuggestedMessages}
+            onClick={showToast}
             className="my-4"
             disabled={isSuggestLoading}
           >
